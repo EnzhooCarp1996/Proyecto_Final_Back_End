@@ -50,3 +50,13 @@ export async function getProductByIdControllers(req, res) {
     });
   }
 }
+
+export async function createProductController(req, res) {
+  
+  
+}
+
+export async function deleteProductController(req, res) {
+
+  
+}

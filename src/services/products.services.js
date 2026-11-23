@@ -19,3 +19,7 @@ export const getProductByIdService = async (id) => {
   const product = await getProductById(id);
   return product;
 };
+
+export const createProductService = async () => {};
+
+export const deleteProductService = async () => {};
