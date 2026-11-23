@@ -6,7 +6,7 @@ import {
 } from "../services/products.services.js";
 
 export async function getAllProductsControllers(req, res) {
-  const category = req.query.category;
+  const category = req.query.categoria;
   try {
     const products = await getAllProductsService(category);
     if (products.length > 0) {
@@ -60,8 +60,8 @@ export async function createProductController(req, res) {
   const product = req.body;
 
   // verifica si existe producto sino retorna status 400
-  if (product) {
-    return req.status(400).send({
+  if (!product) {
+    return res.status(400).send({
       message: "el producto es necesario",
     });
   }
@@ -70,7 +70,7 @@ export async function createProductController(req, res) {
     const newProduct = await createProductService(product);
     res.status(200).send({
       message: "se creo el producto exitosamente",
-      data: newProduct
+      data: newProduct,
     });
   } catch (err) {
     console.log("Error interno: ", err);

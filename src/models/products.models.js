@@ -41,7 +41,10 @@ export const getProductById = async (id) => {
 
 export const getProductsByQuery = async (valor) => {
   try {
-    const q = query(collection(db, products), where("categoria", "==", valor));
+    const q = query(
+      collection(db, "products"),
+      where("categoria", "==", valor),
+    );
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   } catch (err) {

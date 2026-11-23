@@ -9,7 +9,7 @@ import { authentication } from "../middlewares/authentication.js";
 
 const routes = express.Router();
 
-routes.get("/products", getAllProductsControllers);
+routes.get("/products", authentication, getAllProductsControllers);
 
 routes.get("/products/:id", authentication, getProductByIdControllers);
 
