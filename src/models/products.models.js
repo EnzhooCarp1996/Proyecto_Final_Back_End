@@ -49,3 +49,24 @@ export const getProductsByQuery = async (valor) => {
     throw err;
   }
 };
+
+export const createProduct = async (newProduct) => {
+  try {
+    const docRef = await addDoc(collection(db, "products"), newProduct);
+    return { id: docRef.id, ...newProduct };
+  } catch (err) {
+    console.error("Error creando el producto: ", err);
+    throw err;
+  }
+};
+
+export const deleteProduct = async (id) => {
+  try {
+    const docRef = doc(db, "products", id);
+    await deleteDoc(docRef);
+    return id;
+  } catch (err) {
+    console.error(`Error al eliminar el producto con id ${id} :`, err);
+    throw err;
+  }
+};

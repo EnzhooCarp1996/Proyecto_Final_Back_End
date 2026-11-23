@@ -5,7 +5,7 @@ import {
   createProductController,
   deleteProductController,
 } from "../controllers/products.controller.js";
-import { authentication } from "../../../clase-12/ejercicio/src/middleware/authentication.js";
+import { authentication } from "../middlewares/authentication.js";
 
 const routes = express.Router();
 

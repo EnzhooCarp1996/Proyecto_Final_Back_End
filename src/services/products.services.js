@@ -2,6 +2,8 @@ import {
   getProducts,
   getProductById,
   getProductsByQuery,
+  createProduct,
+  deleteProduct,
 } from "../models/products.models.js";
 
 export const getAllProductsService = async (category) => {
@@ -20,6 +22,12 @@ export const getProductByIdService = async (id) => {
   return product;
 };
 
-export const createProductService = async () => {};
+export const createProductService = async (newProduct) => {
+  const product = await createProduct(newProduct);
+  return product;
+};
 
-export const deleteProductService = async () => {};
+export const deleteProductService = async (id) => {
+  const idDelete = await deleteProduct(id);
+  return idDelete;
+};
